@@ -1,0 +1,46 @@
+//Задание 4.1
+#include <iostream>
+#include <math.h>
+using namespace std;
+int Y() 
+{
+	float Y = 0;
+	float p, z;
+	cout << "1)" << "\n";
+	cout << "p = ";
+	cin >> p;
+	cout << "z = ";
+	cin >> z;
+	cout << "Y = " << p * z * z << endl;
+	return 0;
+}
+int Q() 
+{
+	const double pi = acos(-1);
+	float Q = 0;
+	float x;
+	cout <<"\n" << "2)" << "\n";
+	cout << "x = ";
+	cin >> x;
+	Q = (sin(3 * pi / 2) + x) / (x + sqrt(abs(3 * pi / 2 + x)));
+	cout << "Q = " << Q << endl;
+	return 0;
+}
+int W() 
+{
+	float W = 0;
+	float x;
+	cout << "\n" << "2)" << "\n";
+	cout << "x = ";
+	cin >> x;
+	W = ((sin(x) * sin(x)) / (x * x - 4)) + ((cos(x) * cos(x)) / ((x - 3) * (x - 5)));
+	cout << "W = " << W;
+	return 0;
+}
+int main()
+{
+	Y();
+	Q();
+	W();
+	return 0;
+}
