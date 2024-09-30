@@ -1,0 +1,348 @@
+#include <iostream>
+using namespace std;
+
+void a() 
+{
+	int x, y, z;
+	cout << "x = ";
+	cin >> x;
+	cout << "y = ";
+	cin >> y;
+	cout << "z = ";
+	cin >> z;
+	if (x == 0) {
+		cout << "1";
+	}
+	if (y == 0) {
+		cout << "2";
+	}
+	if (z == 0) {
+		cout << "3";
+	}
+}
+
+
+void b()
+{
+	int k, l, n;
+	cout << "k = ";
+	cin >> k;
+	cout << "l = ";
+	cin >> l;
+	cout << "n = ";
+	cin >> n;
+	if (k > l) {
+		if (l > n) {
+			cout << "max = 1; min = 3";
+		}
+		else {
+			if (n < k) {
+				cout << "max = 1; min = 2";
+			}
+			else {
+				cout << "max = 3; min = 2";
+			}
+		}
+	}
+	else {
+		if (k > n) {
+			cout << "max = 2; min = 3";
+		}
+		else {
+			if (l < n) {
+				cout << "max = 3; min = 1";
+			}
+			else {
+				cout << "max = 2; min = 1";
+			}
+		}
+	}
+}
+
+
+void c()
+{
+	int y, z, polsum, proiz;
+	cout << "y = ";
+	cin >> y;
+	cout << "z = ";
+	cin >> z;
+	polsum = (y + z) / 2;
+	proiz = 2 * y * z;
+	if (y < z) {
+		z = polsum;
+		y = proiz;
+	}
+	else {
+		y = polsum;
+		z = proiz;
+	}
+	cout << "=>";
+	cout << "  y = " << y;
+	cout << "  z = " << z;
+}
+
+
+void d()
+{
+	int x, y, z, pos = 0, neg = 0;
+	cout << "x = ";
+	cin >> x;
+	cout << "y = ";
+	cin >> y;
+	cout << "z = ";
+	cin >> z;
+	if (x > 0) {
+		pos++;
+	}
+	else if (x < 0){
+		neg++;
+	}
+
+	if (y > 0) {
+		pos++;
+	}
+	else if (y < 0) {
+		neg++;
+	}
+
+	if (z > 0) {
+		pos++;
+	}
+	else if (z < 0) {
+		neg++;
+	}
+	cout << "positive = " << pos << endl;
+	cout << "negative = " << neg << endl;
+}
+
+
+void e()
+{
+	int a, b, c, max = 0, min = 0;
+	cout << "a = ";
+	cin >> a;
+	cout << "b = ";
+	cin >> b;
+	cout << "c = ";
+	cin >> c;
+	if ((a > b) and (a > c)) {
+		max = a;
+	}
+
+	if ((b > a) and (b > c)) {
+		max = b;
+	}
+
+	if ((c > b) and (a < c)) {
+		max = c;
+	}
+
+	if ((a < b) and (a < c)) {
+		min = a;
+	}
+
+	if ((b < a) and (b < c)) {
+		min = b;
+	}
+
+	if ((c < b) and (a > c)) {
+		min = c;
+	}
+	cout << max - min;
+}
+
+
+void f() 
+{
+	int a, b, c, k = 0, m = 0, n = 0;
+	cout << "a = ";
+	cin >> a;
+	cout << "b = ";
+	cin >> b;
+	cout << "c = ";
+	cin >> c;
+	if ((a > b) and (b > c)) {
+		k = c;
+		n = a;
+		a = k;
+		c = n;
+	}
+
+	if ((a > c) and (c > b)) {
+		k = b;
+		m = c;
+		n = a;
+		a = k;
+		b = m;
+		c = n;
+	}
+
+	if ((b > a) and (a > c)) {
+		k = c;
+		m = a;
+		n = b;
+		a = k;
+		b = m;
+		c = n;
+	}
+
+	if ((b > c) and (c > a)) {
+		m = c;
+		n = b;
+		b = m;
+		c = n;
+	}
+
+	if ((c > a) and (a > b)) {
+		k = b;
+		m = a;
+		a = k;
+		b = m;
+	}
+	cout << "a = " << a << endl;
+	cout << "b = " << b << endl;
+	cout << "c = " << c << endl;
+}
+
+
+void g()
+{
+	int a, b, c, max1 = 0, max2 = 0;
+	cout << "a = ";
+	cin >> a;
+	cout << "b = ";
+	cin >> b;
+	cout << "c = ";
+	cin >> c;
+	if ((a > b) and (b > c)) {
+		max1 = a;
+		max2 = b;
+	}
+
+	if ((a > c) and (c > b)) {
+		max1 = a;
+		max2 = c;
+	}
+
+	if ((b > a) and (a > c)) {
+		max1 = b;
+		max2 = a;
+	}
+
+	if ((b > c) and (c > a)) {
+		max1 = b;
+		max2 = c;
+	}
+
+	if ((c > a) and (a > b)) {
+		max1 = c;
+		max2 = a;
+	}
+	cout << "max(1) = " << max1 << endl;
+	cout << "max(2) = " << max2 << endl;
+}
+
+
+void h()
+{
+	int a, b, c;
+	cout << "a = ";
+	cin >> a;
+	cout << "b = ";
+	cin >> b;
+	cout << "c = ";
+	cin >> c;
+	if ((a < b) and (a < c)) {
+		a = (c + b) / 2;
+	}
+	if ((a > b) and (b < c)) {
+		b = (a + c) / 2;
+	}
+	if ((c < b) and (a > c)) {
+		c = (a + b) / 2;
+	}
+	cout << "a = " << a << endl;
+	cout << "b = " << b << endl;
+	cout << "c = " << c << endl;
+}
+
+
+void i() 
+{
+	float a, b, c, d;
+	cout << "a = ";
+	cin >> a;
+	cout << "b = ";
+	cin >> b;
+	cout << "c = ";
+	cin >> c;
+	cout << "d = ";
+	cin >> d;
+	float a2 = a, b2 = b, c2 = c, d2 = d;
+	if (b2 > a2) {
+		a2 = b2;
+	}
+	if (c2 > a2) {
+		a2 = c2;
+	}
+	if (d2 > a2) {
+		a2 = d2;
+	}
+	cout << "a = " << a / a2 << endl;
+	cout << "b = " << b / a2 << endl;
+	cout << "c = " << c / a2 << endl;
+	cout << "d = " << d / a2 << endl;
+}
+
+
+void j()
+{
+	int a, b, c, d;
+	cout << "a = ";
+	cin >> a;
+	cout << "b = ";
+	cin >> b;
+	cout << "c = ";
+	cin >> c;
+	cout << "d = ";
+	cin >> d;
+	int m1 = a, b2 = b, c2 = c, d2 = d;
+	if (b2 > m1) {
+		m1 = b2;
+	}
+	if (c2 > m1) {
+		m1 = c2;
+	}
+	if (d2 > m1) {
+		m1 = d2;
+	}
+
+	int m2 = b, c3 = c, d3 = d;
+	if (c3 > m2) {
+		m2 = c3;
+	}
+	if (d3 > m2) {
+		m2 = d3;
+	}
+
+	int m3 = c, d4 = d;
+	if (d4 > m3) {
+		m3 = d4;
+	}
+	a = m1;
+	b = m2;
+	c = m3;
+	d = a + b + c + d - m1 - m2 - m3;
+
+	cout << "a = " << a << endl;
+	cout << "b = " << b << endl;
+	cout << "c = " << c << endl;
+	cout << "d = " << d << endl;
+}
+
+
+int main()
+{
+	return 0;
+}
