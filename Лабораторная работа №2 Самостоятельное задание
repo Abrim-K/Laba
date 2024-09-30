@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int a, b, c, d;
+	cout << "a = ";
+	cin >> a;
+	cout << "b = ";
+	cin >> b;
+	cout << "c = ";
+	cin >> c;
+	cout << "d = ";
+	cin >> d;
+	// Если одна из точек одного отрезка находится между двумя точками другого отрезка, то они 
+	// пересекаются
+	if (((a < c) and (c < b)) or ((a < d) and (d < b)) or ((c < a) and (a < d)) or ((c < b) and (b < d))) {
+		cout << "Yes";
+	}
+	else {
+		cout << "NO";
+	}
+	return 0;
+}
