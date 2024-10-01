@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "RU");
+	int num;
+	cout << "Введите число от 10 по 15 => "; cin >> num;
+	if ((num >= 10) and (num <= 15)) {
+		cout << "Число в шестнадцатиричной системе => ";
+	}
+	switch (num) 
+	{
+	case 10: cout << "A \n"; break;
+	case 11: cout << "B \n"; break;
+	case 12: cout << "C \n"; break;
+	case 13: cout << "D \n"; break;
+	case 14: cout << "E \n"; break;
+	case 15: cout << "F \n"; break;
+	default: cout << "Это число не входит в область допустимых значений \n"; break;
+	}
+}
