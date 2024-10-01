@@ -297,7 +297,7 @@ void i()
 	cout << "d = " << d / a2 << endl;
 }
 
-// 10 ЗАДАЧА (НЕ РАБОТАЕТ)
+// 10 ЗАДАЧА 
 void j()
 {
 	int a, b, c, d;
@@ -309,28 +309,83 @@ void j()
 	cin >> c;
 	cout << "d = ";
 	cin >> d;
-	int m1 = a, b1 = b, c1 = c, d1 = d;
-	if (b1 > m1) {
-		m1 = b1;
+	int m1 = 0, m2 = 0, m3 = 0, m4 = 0;
+
+	int cna = 0;
+	if (a > b) {
+		cna++;
 	}
-	if (c1 > m1) {
-		m1 = c1;
+	if (a > c) {
+		cna++;
 	}
-	if (d1 > m1) {
-		m1 = d1;
+	if (a > d) {
+		cna++;
+	}
+	
+	switch (cna) {
+	case 0: m4 = a; break;
+	case 1: m3 = a; break;
+	case 2: m2 = a; break;
+	case 3: m1 = a; break;
 	}
 
-	int m4 = a, b4 = b, c4 = c, d4 = d;
-	if (b4 > m1) {
-		m1 = b4;
+	int cnb = 0;
+	if (b > a) {
+		cnb++;
 	}
-	if (c4 > m1) {
-		m1 = c4;
+	if (b > c) {
+		cnb++;
 	}
-	if (d4 > m1) {
-		m1 = d4;
+	if (b > d) {
+		cnb++;
 	}
+
+	switch (cnb) {
+	case 0: m4 = b; break;
+	case 1: m3 = b; break;
+	case 2: m2 = b; break;
+	case 3: m1 = b; break;
+	}
+	
+	int cnc = 0;
+	if (c > b) {
+		cnc++;
+	}
+	if (c > a) {
+		cnc++;
+	}
+	if (c > d) {
+		cnc++;
+	}
+
+	switch (cnc) {
+	case 0: m4 = c; break;
+	case 1: m3 = c; break;
+	case 2: m2 = c; break;
+	case 3: m1 = c; break;
+	}
+
+	int cnd = 0;
+	if (d > b) {
+		cnd++;
+	}
+	if (d > c) {
+		cnd++;
+	}
+	if (d > a) {
+		cnd++;
+	}
+
+	switch (cnd) {
+	case 0: m4 = d; break;
+	case 1: m3 = d; break;
+	case 2: m2 = d; break;
+	case 3: m1 = d; break;
+	}
+
 	a = m1;
+	b = m2;
+	c = m3;
 	d = m4;
 
 	cout << "a = " << a << endl;
@@ -355,7 +410,7 @@ int main()
 	case 7: g(); break;
 	case 8: h(); break;
 	case 9: i(); break;
-	case 10: cout << "Нерабочая, не смог решить с помощью if else"; break;
+	case 10: j(); break;
 	}
 	return 0;
 }
