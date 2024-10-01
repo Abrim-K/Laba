@@ -309,33 +309,29 @@ void j()
 	cin >> c;
 	cout << "d = ";
 	cin >> d;
-	int m1 = a, b2 = b, c2 = c, d2 = d;
-	if (b2 > m1) {
-		m1 = b2;
+	int m1 = a, b1 = b, c1 = c, d1 = d;
+	if (b1 > m1) {
+		m1 = b1;
 	}
-	if (c2 > m1) {
-		m1 = c2;
+	if (c1 > m1) {
+		m1 = c1;
 	}
-	if (d2 > m1) {
-		m1 = d2;
-	}
-
-	int m2 = b, c3 = c, d3 = d;
-	if (c3 > m2) {
-		m2 = c3;
-	}
-	if (d3 > m2) {
-		m2 = d3;
+	if (d1 > m1) {
+		m1 = d1;
 	}
 
-	int m3 = c, d4 = d;
-	if (d4 > m3) {
-		m3 = d4;
+	int m4 = a, b4 = b, c4 = c, d4 = d;
+	if (b4 > m1) {
+		m1 = b4;
+	}
+	if (c4 > m1) {
+		m1 = c4;
+	}
+	if (d4 > m1) {
+		m1 = d4;
 	}
 	a = m1;
-	b = m2;
-	c = m3;
-	d = a + b + c + d - m1 - m2 - m3;
+	d = m4;
 
 	cout << "a = " << a << endl;
 	cout << "b = " << b << endl;
