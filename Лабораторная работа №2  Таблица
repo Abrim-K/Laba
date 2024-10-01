@@ -2,7 +2,7 @@
 using namespace std;
 
 // 1 ЗАДАЧА
-void a() 
+void a()
 {
 	int x, y, z;
 	cout << "x = ";
@@ -63,7 +63,8 @@ void b()
 // 3 ЗАДАЧА
 void c()
 {
-	int y, z, polsum, proiz;
+	int y, z, proiz;
+	float polsum;
 	cout << "y = ";
 	cin >> y;
 	cout << "z = ";
@@ -96,7 +97,7 @@ void d()
 	if (x > 0) {
 		pos++;
 	}
-	else if (x < 0){
+	else if (x < 0) {
 		neg++;
 	}
 
@@ -154,7 +155,7 @@ void e()
 }
 
 // 6 ЗАДАЧА
-void f() 
+void f()
 {
 	int a, b, c, k = 0, m = 0, n = 0;
 	cout << "a = ";
@@ -269,7 +270,7 @@ void h()
 }
 
 // 9 ЗАДАЧА
-void i() 
+void i()
 {
 	float a, b, c, d;
 	cout << "a = ";
@@ -345,5 +346,20 @@ void j()
 
 int main()
 {
+	setlocale(LC_ALL, "RU");
+	int num;
+	cout << "Введите номер задачи => "; cin >> num;
+	switch (num) {
+	case 1: a(); break;
+	case 2: b(); break;
+	case 3: c(); break;
+	case 4: d(); break;
+	case 5: e(); break;
+	case 6: f(); break;
+	case 7: g(); break;
+	case 8: h(); break;
+	case 9: i(); break;
+	case 10: cout << "Нерабочая, не смог решить с помощью if else"; break;
+	}
 	return 0;
 }
