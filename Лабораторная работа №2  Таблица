@@ -2,15 +2,8 @@
 using namespace std;
 
 // 1 ЗАДАЧА
-void a()
+void a(float x, float y, float z)
 {
-	int x, y, z;
-	cout << "x = ";
-	cin >> x;
-	cout << "y = ";
-	cin >> y;
-	cout << "z = ";
-	cin >> z;
 	if (x == 0) {
 		cout << "1";
 	}
@@ -23,48 +16,40 @@ void a()
 }
 
 // 2 ЗАДАЧА
-void b()
+void b(float k, float l, float n)
 {
-	int k, l, n;
-	cout << "k = ";
-	cin >> k;
-	cout << "l = ";
-	cin >> l;
-	cout << "n = ";
-	cin >> n;
 	if (k > l) {
 		if (l > n) {
-			cout << "max = 1; min = 3";
+			cout << "Наибольшее = 1; Наименьшее = 3";
 		}
 		else {
 			if (n < k) {
-				cout << "max = 1; min = 2";
+				cout << "Наибольшее = 1; Наименьшее = 2";
 			}
 			else {
-				cout << "max = 3; min = 2";
+				cout << "Наибольшее = 3; Наименьшее = 2";
 			}
 		}
 	}
 	else {
 		if (k > n) {
-			cout << "max = 2; min = 3";
+			cout << "Наибольшее = 2; Наименьшее = 3";
 		}
 		else {
 			if (l < n) {
-				cout << "max = 3; min = 1";
+				cout << "Наибольшее = 3; Наименьшее = 1";
 			}
 			else {
-				cout << "max = 2; min = 1";
+				cout << "Наибольшее = 2; Наименьшее = 1";
 			}
 		}
 	}
 }
 
 // 3 ЗАДАЧА
-void c()
+void c(float y, float z)
 {
-	int y, z, proiz;
-	float polsum;
+	float proiz, polsum;
 	cout << "y = ";
 	cin >> y;
 	cout << "z = ";
@@ -80,20 +65,14 @@ void c()
 		z = proiz;
 	}
 	cout << "=>";
-	cout << "  y = " << y;
-	cout << "  z = " << z;
+	cout << "  Y = " << y;
+	cout << "  Z = " << z;
 }
 
 // 4 ЗАДАЧА
-void d()
+void d(float x, float y, float z)
 {
-	int x, y, z, pos = 0, neg = 0;
-	cout << "x = ";
-	cin >> x;
-	cout << "y = ";
-	cin >> y;
-	cout << "z = ";
-	cin >> z;
+	int pos = 0, neg = 0;
 	if (x > 0) {
 		pos++;
 	}
@@ -114,20 +93,14 @@ void d()
 	else if (z < 0) {
 		neg++;
 	}
-	cout << "positive = " << pos << endl;
-	cout << "negative = " << neg << endl;
+	cout << "Положительных = " << pos << endl;
+	cout << "Отрицательных = " << neg << endl;
 }
 
 // 5 ЗАДАЧА
-void e()
+void e(float a, float b, float c)
 {
-	int a, b, c, max = 0, min = 0;
-	cout << "a = ";
-	cin >> a;
-	cout << "b = ";
-	cin >> b;
-	cout << "c = ";
-	cin >> c;
+	int max = 0, min = 0;
 	if ((a > b) and (a > c)) {
 		max = a;
 	}
@@ -155,15 +128,9 @@ void e()
 }
 
 // 6 ЗАДАЧА
-void f()
+void f(float a, float b, float c)
 {
-	int a, b, c, k = 0, m = 0, n = 0;
-	cout << "a = ";
-	cin >> a;
-	cout << "b = ";
-	cin >> b;
-	cout << "c = ";
-	cin >> c;
+	float k = 0, m = 0, n = 0;
 	if ((a > b) and (b > c)) {
 		k = c;
 		n = a;
@@ -202,21 +169,15 @@ void f()
 		a = k;
 		b = m;
 	}
-	cout << "a = " << a << endl;
-	cout << "b = " << b << endl;
-	cout << "c = " << c << endl;
+	cout << "K = " << a << endl;
+	cout << "M = " << b << endl;
+	cout << "N = " << c << endl;
 }
 
 // 7 ЗАДАЧА
-void g()
+void g(float a, float b, float c)
 {
-	int a, b, c, max1 = 0, max2 = 0;
-	cout << "a = ";
-	cin >> a;
-	cout << "b = ";
-	cin >> b;
-	cout << "c = ";
-	cin >> c;
+	float max1 = 0, max2 = 0;
 	if ((a > b) and (b > c)) {
 		max1 = a;
 		max2 = b;
@@ -246,41 +207,25 @@ void g()
 }
 
 // 8 ЗАДАЧА
-void h()
+void h(float a, float b, float c)
 {
-	int a, b, c;
-	cout << "a = ";
-	cin >> a;
-	cout << "b = ";
-	cin >> b;
-	cout << "c = ";
-	cin >> c;
 	if ((a < b) and (a < c)) {
 		a = (c + b) / 2;
 	}
-	if ((a > b) and (b < c)) {
+	else if ((a > b) and (b < c)) {
 		b = (a + c) / 2;
 	}
-	if ((c < b) and (a > c)) {
+	else if ((c < b) and (a > c)) {
 		c = (a + b) / 2;
 	}
-	cout << "a = " << a << endl;
-	cout << "b = " << b << endl;
-	cout << "c = " << c << endl;
+	cout << "L = " << a << endl;
+	cout << "M = " << b << endl;
+	cout << "N = " << c << endl;
 }
 
 // 9 ЗАДАЧА
-void i()
+void i(float a, float b, float c, float d)
 {
-	float a, b, c, d;
-	cout << "a = ";
-	cin >> a;
-	cout << "b = ";
-	cin >> b;
-	cout << "c = ";
-	cin >> c;
-	cout << "d = ";
-	cin >> d;
 	float a2 = a, b2 = b, c2 = c, d2 = d;
 	if (b2 > a2) {
 		a2 = b2;
@@ -291,25 +236,16 @@ void i()
 	if (d2 > a2) {
 		a2 = d2;
 	}
-	cout << "a = " << a / a2 << endl;
-	cout << "b = " << b / a2 << endl;
-	cout << "c = " << c / a2 << endl;
-	cout << "d = " << d / a2 << endl;
+	cout << "A = " << a / a2 << endl;
+	cout << "B = " << b / a2 << endl;
+	cout << "C = " << c / a2 << endl;
+	cout << "D = " << d / a2 << endl;
 }
 
 // 10 ЗАДАЧА 
-void j()
+void j(float a, float b, float c, float d)
 {
-	int a, b, c, d;
-	cout << "a = ";
-	cin >> a;
-	cout << "b = ";
-	cin >> b;
-	cout << "c = ";
-	cin >> c;
-	cout << "d = ";
-	cin >> d;
-	int m1 = 0, m2 = 0, m3 = 0, m4 = 0;
+	float m1 = 0, m2 = 0, m3 = 0, m4 = 0;
 
 	int cna = 0;
 	if (a > b) {
@@ -388,10 +324,10 @@ void j()
 	c = m3;
 	d = m4;
 
-	cout << "a = " << a << endl;
-	cout << "b = " << b << endl;
-	cout << "c = " << c << endl;
-	cout << "d = " << d << endl;
+	cout << "A = " << a << endl;
+	cout << "B = " << b << endl;
+	cout << "C = " << c << endl;
+	cout << "D = " << d << endl;
 }
 
 
@@ -399,18 +335,38 @@ int main()
 {
 	setlocale(LC_ALL, "RU");
 	int num;
-	cout << "Введите номер задачи => "; cin >> num;
+	float x = 0, y = 0, z = 0, w = 0;
+	cout << "Введите номер задачи от 1 по 10 => "; cin >> num;
+	if ((num == 1) or (num == 2) or ((num >= 4) and (num <= 8))) {
+		cout << "Введите первое число => "; cin >> x;
+		cout << "Введите второе число => "; cin >> y;
+		cout << "Введите третье число => "; cin >> z;
+	}
+	else if (num == 3) {
+		cout << "Введите первое число => "; cin >> x;
+		cout << "Введите второе число => "; cin >> y;
+	}
+	else if ((num == 9) or (num == 10)) {
+		cout << "Введите первое число => "; cin >> x;
+		cout << "Введите второе число => "; cin >> y;
+		cout << "Введите третье число => "; cin >> z;
+		cout << "Введите четвертое число => "; cin >> w;
+	}
+	else {
+		cout << "Такой задачи нет в базе данных";
+	}
+
 	switch (num) {
-	case 1: a(); break;
-	case 2: b(); break;
-	case 3: c(); break;
-	case 4: d(); break;
-	case 5: e(); break;
-	case 6: f(); break;
-	case 7: g(); break;
-	case 8: h(); break;
-	case 9: i(); break;
-	case 10: j(); break;
+	case 1: a(x, y, z); break;
+	case 2: b(x, y, z); break;
+	case 3: c(x, y); break;
+	case 4: d(x, y, z); break;
+	case 5: e(x, y, z); break;
+	case 6: f(x, y, z); break;
+	case 7: g(x, y, z); break;
+	case 8: h(x, y, z); break;
+	case 9: i(x, y, z, w); break;
+	case 10: j(x, y, z, w); break;
 	}
 	return 0;
 }
