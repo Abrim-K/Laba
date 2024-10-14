@@ -50,10 +50,6 @@ void b(float k, float l, float n)
 void c(float y, float z)
 {
 	float proiz, polsum;
-	cout << "y = ";
-	cin >> y;
-	cout << "z = ";
-	cin >> z;
 	polsum = (y + z) / 2;
 	proiz = 2 * y * z;
 	if (y < z) {
@@ -100,7 +96,7 @@ void d(float x, float y, float z)
 // 5 ЗАДАЧА
 void e(float a, float b, float c)
 {
-	int max = 0, min = 0;
+	float max = 0, min = 0;
 	if ((a > b) and (a > c)) {
 		max = a;
 	}
@@ -257,7 +253,7 @@ void j(float a, float b, float c, float d)
 	if (a > d) {
 		cna++;
 	}
-	
+
 	switch (cna) {
 	case 0: m4 = a; break;
 	case 1: m3 = a; break;
@@ -282,7 +278,7 @@ void j(float a, float b, float c, float d)
 	case 2: m2 = b; break;
 	case 3: m1 = b; break;
 	}
-	
+
 	int cnc = 0;
 	if (c > b) {
 		cnc++;
@@ -334,39 +330,43 @@ void j(float a, float b, float c, float d)
 int main()
 {
 	setlocale(LC_ALL, "RU");
-	int num;
+	int num = -1;
 	float x = 0, y = 0, z = 0, w = 0;
-	cout << "Введите номер задачи от 1 по 10 => "; cin >> num;
-	if ((num == 1) or (num == 2) or ((num >= 4) and (num <= 8))) {
-		cout << "Введите первое число => "; cin >> x;
-		cout << "Введите второе число => "; cin >> y;
-		cout << "Введите третье число => "; cin >> z;
-	}
-	else if (num == 3) {
-		cout << "Введите первое число => "; cin >> x;
-		cout << "Введите второе число => "; cin >> y;
-	}
-	else if ((num == 9) or (num == 10)) {
-		cout << "Введите первое число => "; cin >> x;
-		cout << "Введите второе число => "; cin >> y;
-		cout << "Введите третье число => "; cin >> z;
-		cout << "Введите четвертое число => "; cin >> w;
-	}
-	else {
-		cout << "Такой задачи нет в базе данных";
-	}
-
-	switch (num) {
-	case 1: a(x, y, z); break;
-	case 2: b(x, y, z); break;
-	case 3: c(x, y); break;
-	case 4: d(x, y, z); break;
-	case 5: e(x, y, z); break;
-	case 6: f(x, y, z); break;
-	case 7: g(x, y, z); break;
-	case 8: h(x, y, z); break;
-	case 9: i(x, y, z, w); break;
-	case 10: j(x, y, z, w); break;
+	while (num != 0) {
+		cout << "\nВведите номер задачи от 1 по 10 (введите 0 для завершения программы) => "; cin >> num;
+		if ((num == 1) or (num == 2) or ((num >= 4) and (num <= 8))) {
+			cout << "Введите первое число => "; cin >> x;
+			cout << "Введите второе число => "; cin >> y;
+			cout << "Введите третье число => "; cin >> z;
+		}
+		else if (num == 3) {
+			cout << "Введите первое число => "; cin >> x;
+			cout << "Введите второе число => "; cin >> y;
+		}
+		else if ((num == 9) or (num == 10)) {
+			cout << "Введите первое число => "; cin >> x;
+			cout << "Введите второе число => "; cin >> y;
+			cout << "Введите третье число => "; cin >> z;
+			cout << "Введите четвертое число => "; cin >> w;
+		}
+		else if (num == 0) {
+			cout << "Конец программы";
+		}
+		else {
+			cout << "Такой задачи нет в базе данных";
+		}
+		switch (num) {
+		case 1: a(x, y, z); cout << "\n"; break;
+		case 2: b(x, y, z); cout << "\n"; break;
+		case 3: c(x, y); cout << "\n"; break;
+		case 4: d(x, y, z); cout << "\n"; break;
+		case 5: e(x, y, z); cout << "\n"; break;
+		case 6: f(x, y, z); cout << "\n"; break;
+		case 7: g(x, y, z); cout << "\n"; break;
+		case 8: h(x, y, z); cout << "\n"; break;
+		case 9: i(x, y, z, w); cout << "\n"; break;
+		case 10: j(x, y, z, w); cout << "\n"; break;
+		}
 	}
 	return 0;
 }
