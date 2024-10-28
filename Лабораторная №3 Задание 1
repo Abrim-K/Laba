@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	long long n;
+	cout << "n = "; cin >> n;
+	for (int i = 1; i <= 10; ++i) {
+		long long m = pow(10, i);
+		long long s = n % m;
+		n = n - s;
+		cout << s / (m / 10) << " ";
+	}
+}
