@@ -1,0 +1,38 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "RU");
+	double a, b, t = 0, y = 0;
+	int n;
+	double e = exp(1); //выразил экспоненту
+	double pi = acos(0); //выразил число пи
+	cout << "a = ";
+	cin >> a;
+	cout << "b = ";
+	cin >> b;
+	cout << "n = ";
+	cin >> n;
+	if ((a >= 0) and (b > a) and (n > 0)) {
+		if (n == 1) {
+			t = (b - a) / 2;
+			cout << "\n" << "t" << "\t" << "y" << "\n";
+			y = 5 * (1 - e - 0.5 * t) * cos(2 * pi * t);
+			cout << t << "\t" << y << "\n";
+		}
+		else {
+			double z = (b - a) / (n - 1); //определяю длину шага
+			cout << "\n" << "t" << "\t" << "y" << "\n";
+			for (t = a; t <= b; t += z) {
+				y = 5 * (1 - e - 0.5 * t) * cos(2 * pi * t);
+				cout << t << "\t" << y << "\n";
+			}
+		}
+
+	}
+	else {
+		cout << "Неверные значения";
+	}
+	return 0;
+}
