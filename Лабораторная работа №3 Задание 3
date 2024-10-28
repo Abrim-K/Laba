@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int prev, now, next, s = 0, cnt = 0, mx = 0;
+	cin >> prev >> now >> next;
+	while (next > 0) {
+		if ((now > prev) and (now > next)) {
+			if (cnt >= 1) {
+				if (mx == 0) {
+					mx = s;
+				}
+				else {
+					mx = min(mx, s);
+				}
+			}
+			cnt += 1;
+			s = 1;
+		}
+		else {
+			s += 1;
+		}
+		prev = now;
+		now = next;
+		cin >> next;
+	}
+	if (next == 0) {
+		cout << "\n" << mx;
+	}
+	return 0;
+}
