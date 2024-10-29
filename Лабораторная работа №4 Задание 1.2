@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+double sum1(int n) {
+	double s = 0;
+	int i;
+	for (i = 1; i <= n; i += 1) {
+		s += (1.0 - 2.0 * (n % 2)) * (n + 1) / (n * n * n + 1);
+	}
+	return s;
+}
+
+double sum2(double e) {
+	int n = 1;
+	double a = 10, s = 0;
+	while (abs(a) > e) {
+		a = (1.0 - 2.0 * (n % 2)) * (n + 1) / (n * n * n + 1);
+		s += a;
+		n++;
+	}
+	return s;
+}
+
+int main() {
+	int n;
+	double e;
+	cout << "n = "; cin >> n;
+	cout << "e = "; cin >> e;
+	cout << "\n" << "sum1 = " << sum1(n);
+	cout << "\n" << "sum2 = " << sum2(e);
+	return 0;
+}
