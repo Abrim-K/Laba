@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int n, mx = -7253626;
+	cin >> n;
+	while (n != 0) { //нахождение максимального члена последовательности
+		mx = max(mx, n);
+		cin >> n;
+	}
+
+	int now = abs(mx % 100), prev = abs(mx % 10), k = 1;
+	for (int i = 3; now != prev; i++) { //нахождение количества цифр данного числа
+		k += 1;
+		int m = pow(10, i);
+		prev = now;
+		now = abs(mx % m);
+	}
+
+	int mn = mx;
+	for (int i = 1; i <= k; ++i) { //запись в обратном порядке
+		int m = pow(10, i);
+		int s = mx % m;
+		mx = mx - s;
+		cout << abs(s / (m / 10));
+	}
+	if (mn < 0) { //минус тоже отзеркалил
+		cout << "-";
+	}
+	return 0;
+}
