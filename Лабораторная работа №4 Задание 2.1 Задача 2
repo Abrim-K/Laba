@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int n, k = 0, mx = -73363562, mn = 73868635, mxp = 0, mnp = 0;
+	cin >> n;
+	while (n != 0) {
+		k += 1;
+		if (n % 2 == 0) {
+			if (n < mn) {
+				mnp = k;
+			}
+			mn = min(mn, n);
+		}
+		else {
+			if (n > mx) {
+				mxp = k;
+			}
+			mx = max(mx, n);
+		}
+		cin >> n;
+	}
+	cout << "min = " << mn << "\t min pos = " << mnp << endl;
+	cout << "max = " << mx << "\t max pos = " << mxp;
+}
