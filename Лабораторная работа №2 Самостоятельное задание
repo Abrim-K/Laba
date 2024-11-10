@@ -13,7 +13,7 @@ int main() {
 	cin >> d;
 	// Если одна из точек одного отрезка находится между двумя точками другого отрезка, то они 
 	// пересекаются
-	if (((a < c) and (c < b)) or ((a < d) and (d < b)) or ((c < a) and (a < d)) or ((c < b) and (b < d))) {
+	if (((a < c) and (c < b)) or ((a < d) and (d < b)) or ((c < a) and (a < d)) or ((c < b) and (b < d)) or (b == c) or (a == d)){
 		cout << "Yes";
 	}
 	else {
