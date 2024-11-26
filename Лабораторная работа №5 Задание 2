@@ -1,0 +1,63 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+auto input(int n) { //создаем вектор
+	vector <int> v;
+	for (int i = 0; i < n; ++i) {
+		int k;
+		cin >> k;
+		v.push_back(k);
+	}
+	return v;
+}
+
+bool simple(int n) { //определяем простые числа
+	int k = 0;
+	for (int i = 2; i <= (n / 2); ++i) { //находим кол-во делителей
+		if ((n % i) == 0) {
+			k += 1;
+			break;
+		}
+	}
+	if ((k == 0) and (n > 1)) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+bool three(int n) { //находим цифру 3 в числе
+	int cnt = 0;
+	while (n > 0) {
+		if ((n % 10) == 3) {
+			cnt += 1;
+			break;
+		}
+		n /= 10;
+	}
+	if (cnt == 0) {
+		return false;
+	}
+	else {
+		return true;
+	}
+}
+
+int main() {
+	setlocale(LC_ALL, "RU");
+	int n, cnt = 0, mn = 488575756;
+	cout << "Введите количество элементов последовательности: ";
+	cin >> n;
+	vector <int> v = input(n);
+	for (int i = 0; i < n - 2; ++i) {
+		int sum = v[i] + v[i + 1] + v[i + 2];
+		if (three(v[i]) and three(v[i + 1]) and three(v[i + 2]) and simple(sum)) {
+			cnt += 1;
+			mn = min(mn, sum);
+		}
+	}
+	cout << "Ответ: " << cnt << " " << mn;
+	return 0;
+}
