@@ -1,21 +1,38 @@
 #include <iostream>
 using namespace std;
 
+bool chot(int n) { //проверка на четность
+	if (n % 2 == 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+int mnx(int n, int mn, int mx) { //проверка на минимум или максимум
+	if (chot(n) and (n < mn)) {
+		return 1;
+	}
+	else if (!chot(n) and (n > mx)) {
+		return 2;
+	}
+	else {
+		return 0;
+	}
+}
+
 int main() {
-	int n, k = 0, mx = -73363562, mn = 73868635, mxp = 0, mnp = 0;
+	int n, pos = 0, mx = -848575758, mn = 848575758, mxp = 0, mnp = 0;
 	cin >> n;
 	while (n != 0) {
-		k += 1;
-		if (n % 2 == 0) {
-			if (n < mn) {
-				mnp = k;
-			}
+		pos += 1;
+		if (mnx(n, mn, mx) == 1) {
+			mnp = pos;
 			mn = min(mn, n);
 		}
-		else {
-			if (n > mx) {
-				mxp = k;
-			}
+		else if (mnx(n, mn, mx) == 2) {
+			mxp = pos;
 			mx = max(mx, n);
 		}
 		cin >> n;
