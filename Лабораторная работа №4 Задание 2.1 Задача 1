@@ -1,31 +1,44 @@
 #include <iostream>
 using namespace std;
 
-int main() {
+int max() { //нахождение максимального члена последовательности
 	int n, mx = -7253626;
 	cin >> n;
-	while (n != 0) { //нахождение максимального члена последовательности
+	while (n != 0) { 
 		mx = max(mx, n);
 		cin >> n;
 	}
+	return mx;
+}
 
-	int now = abs(mx % 100), prev = abs(mx % 10), k = 1;
-	for (int i = 3; now != prev; i++) { //нахождение количества цифр данного числа
+int len(int n) { //нахождение длины числа
+	int k = 0;
+	while (abs(n) > 0) {
+		n /= 10;
 		k += 1;
-		int m = pow(10, i);
-		prev = now;
-		now = abs(mx % m);
 	}
+	return k;
+}
 
-	int mn = mx;
-	for (int i = 1; i <= k; ++i) { //запись в обратном порядке
+void reverse(int n, int m) { //запись числа в обратном порядке
+	bool mn = false;
+	if (n < 0) {
+		mn = true;
+	}
+	for (int i = 1; i <= m; ++i) {
 		int m = pow(10, i);
-		int s = mx % m;
-		mx = mx - s;
+		int s = n % m;
+		n = n - s;
 		cout << abs(s / (m / 10));
 	}
-	if (mn < 0) { //минус тоже отзеркалил
+	if (mn) { //минус тоже отзеркалил
 		cout << "-";
 	}
+}
+
+int main() {
+	int mx = max();
+	int ln = len(mx);
+	reverse(mx, ln);
 	return 0;
 }
