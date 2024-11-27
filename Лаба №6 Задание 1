@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+enum pol {male, female};
+
+struct child {
+	string name;
+	string pol_child;
+	int rost;
+};
+
+string get_pol(pol x) {
+	switch (x) {
+	case male: return "мальчик";
+	case female: return "девочка";
+	}
+}
+
+int main() {
+	setlocale(LC_ALL, "RU");
+	struct child spy[20];
+	int sum_rost = 0, k = 0;
+	for (int i = 0; i < 20; ++i) {
+		spy[i].rost = 140 + rand() % 21; //использовал функцию rand(), которая даёт 
+		spy[i].pol_child = get_pol(pol(rand() % 2)); //рандомное значение
+		spy[i].name = "child";
+		if (spy[i].pol_child == "мальчик") {
+			k += 1;
+			sum_rost += spy[i].rost;
+		}
+		cout << spy[i].rost << " " << spy[i].pol_child << " " << spy[i].name << i + 1 << endl;
+	}
+	double sr_rost = sum_rost / k;
+	cout << "Средний рост мальчиков = " << sr_rost;
+}
