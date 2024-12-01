@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+typedef struct cityzen {
+	string secondname;
+	string city;
+	struct adres {
+		string streat;
+		int home;
+		int qwart;
+	} n;
+} cit;
+
+int main() {
+	setlocale(LC_ALL, "RU");
+	int k = 0;
+	cit all[10];
+	cit moscow[10];
+	all[0] = { "Лермонтов", "Москва", "Простоквашина", 47, 28 };
+	all[1] = { "Багамаев", "Нефтекумск", "Луговая", 69, 1 };
+	all[2] = { "Пушкин", "Москва", "Морозова", 47, 28 };
+	all[3] = { "Абдулбеков", "Нефтекумск", "Космонавтова", 23, 2 };
+	all[4] = { "Мартиросянов", "Ставрополь", "Ленина", 9, 7 };
+	all[5] = { "Гречнев", "Ставрополь", "Кулакова", 47, 28 };
+	all[6] = { "Волков", "Москва", "Сталинская", 96, 12 };
+	all[7] = { "Мармеладов", "Москва", "Отцовская", 27, 3 };
+	all[8] = { "Квадратов", "Ставрополь", "Тролейбусная", 5, 89 };
+	all[9] = { "Парадигмов", "Москва", "Яблоневая", 49, 67 };
+	for (int i = 0; i < 10; ++i) {
+		if (all[i].city == "Москва") {
+			moscow[k] = all[i];
+			cout << moscow[k].secondname << " " << moscow[k].city << " ";
+			cout << moscow[k].n.streat << " " << moscow[k].n.home << " ";
+			cout << moscow[k].n.qwart << endl;
+			k += 1;
+		}
+	}
+}
