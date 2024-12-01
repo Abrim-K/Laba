@@ -1,0 +1,64 @@
+#include <iostream>
+using namespace std;
+
+struct gost {
+	string name;
+	int number;
+	string comfort;
+	int people;
+	int price;
+};
+
+string comf(int n) {
+	switch (n) {
+	case 0: return "Эконом";
+	case 1: return "Стандарт";
+	case 2: return "Полулюкс";
+	case 3: return "Люкс";
+	}
+}
+
+int fprice(int n) {
+	switch (n) {
+	case 0: return 1000 + rand() % 1001;
+	case 1: return 2500 + rand() % 2501;
+	case 2: return 5000 + rand() % 5001;
+	case 3: return 10000 + rand() % 10001;
+	}
+}
+
+int main() {
+	setlocale(LC_ALL, "RU");
+	int k = 0, s = 0;
+	struct gost all[10];
+	struct gost city[10];
+	s = rand() % 4; all[0] = { "City1", rand() % 200, comf(s), 1 + rand() % 5, fprice(s) };
+	s = rand() % 4; all[1] = {"Kakdoma", rand() % 200, comf(s), 1 + rand() % 5, fprice(s) };
+	s = rand() % 4; all[2] = { "Life", rand() % 200, comf(s), 1 + rand() % 5, fprice(s) };
+	s = rand() % 4; all[3] = { "City2", rand() % 200, comf(s), 1 + rand() % 5, fprice(s) };
+	s = rand() % 4; all[4] = { "Otdoh", rand() % 200, comf(s), 1 + rand() % 5, fprice(s) };
+	s = rand() % 4; all[5] = { "City3", rand() % 200, comf(s), 1 + rand() % 5, fprice(s) };
+	s = rand() % 4; all[6] = { "City4", rand() % 200, comf(s), 1 + rand() % 5, fprice(s) };
+	s = rand() % 4; all[7] = { "Dom", rand() % 200, comf(s), 1 + rand() % 5, fprice(s) };
+	s = rand() % 4; all[8] = { "Dum", rand() % 200, comf(s), 1 + rand() % 5, fprice(s) };
+	s = rand() % 4; all[9] = { "City5", rand() % 200, comf(s), 1 + rand() % 5, fprice(s) };
+	for (int i = 0; i < 9; ++i) { //сортировка массива по гостиничному номеру 
+		for (int j = 0; j < 9; ++j) {
+			if (all[j + 1].number < all[j].number) {
+				struct gost tm = all[j];
+				all[j] = all[j + 1];
+				all[j + 1] = tm;
+			}
+		}
+	}
+	for (int i = 0; i < 10; ++i) { //нахождение подходящих элементов
+		if ((all[i].name.find("C") == 0) and (all[i].name.find("i") == 1) \
+			and (all[i].name.find("t") == 2) and (all[i].name.find("y") == 3)) {
+			city[k] = all[i];
+			cout << city[k].name << " " << city[k].number << " ";
+			cout << city[k].comfort << " " << city[k].people << " ";
+			cout << city[k].price << endl;
+			k += 1;
+		}
+	}
+}
