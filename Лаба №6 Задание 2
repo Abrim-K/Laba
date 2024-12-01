@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+struct crug {
+	int radius;
+	struct centr {
+		int xcor;
+		int ycor;
+	} n;
+};
+
+int main() {
+	setlocale(LC_ALL, "RU");
+	struct crug spy[10];
+	int mxr = 0;
+	int x, y;
+	for (int i = 0; i < 10; ++i) {
+		int k1 = pow(-1, rand() % 2); //использовал функцию rand(), которая даёт рандомное значение
+		int k2 = pow(-1, rand() % 2);
+		spy[i] = {(rand() % 20) + 1, k1 * (rand() % 51), k2 * (rand() % 51)}; 
+		if (spy[i].radius > mxr) {
+			mxr = spy[i].radius;
+			x = spy[i].n.xcor;
+			y = spy[i].n.ycor;
+		}
+		cout << spy[i].radius << " " << spy[i].n.xcor << " " << spy[i].n.ycor << endl;
+	}
+	cout << "Координаты центра: = (" << x << ", " << y << ")" << endl;
+}
