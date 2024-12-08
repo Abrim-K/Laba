@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+void main() {
+	setlocale(LC_ALL, "RU");
+	double* a, * b;
+	a = new double;
+	b = new double;
+	cout << "Введите 2 числа:" << endl;
+	cout << "a = "; cin >> *a;
+	cout << "b = "; cin >> *b;
+	*a /= 2;
+	cout << "Результат:" << endl;
+	cout << "a = " << *a << "\n" << "b = " << *b;
+	delete a;
+	delete b;
+}
