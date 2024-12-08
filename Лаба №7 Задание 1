@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+void main() {
+	setlocale(LC_ALL, "RU");
+	int a, b;
+	cout << "Введите два числа" << endl;
+	cout << "a = "; cin >> a;
+	cout << "b = "; cin >> b;
+	int* pa = &a;
+	int* pb = &b;
+	int c = *pa;
+	*pa = *pb;
+	*pb = c;
+	cout << "Результат:" << "\n" << "a = " << a << "\n" << "b = " << b;
+}
