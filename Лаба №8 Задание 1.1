@@ -1,0 +1,37 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+
+stack<int> stak;
+stack<int> stak_nechet;
+
+int main() {
+	setlocale(LC_ALL, "RU");
+	int s = 1;
+	cout << "введите целые значения стека (для окончания ввода введите 0)" << endl;
+	while (s != 0) {
+		cin >> s;
+		if (s == 0) {
+			break;
+		}
+		else if (s % 2 == 1){
+			stak.push(s);
+			stak_nechet.push(s); //нахождение нечетных значений
+		}
+		else {
+			stak.push(s);
+		}
+	}
+	int proiz = 1;
+	while (!stak_nechet.empty()) {
+		proiz *= stak_nechet.top();
+		stak_nechet.pop();
+	}
+	cout << "произведение: " << proiz << endl;
+	cout << "Данные стека: ";
+	while (!stak.empty()) {
+		cout << "\t" << stak.top();
+		stak.pop();
+	}
+	return 0;
+}
