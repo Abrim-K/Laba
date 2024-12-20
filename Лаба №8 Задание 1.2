@@ -1,0 +1,42 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+
+struct pole {
+	string monitor;
+	int diag;
+	int price;
+};
+stack<struct pole> stak;
+stack<struct pole> stakrev;
+
+int main() {
+	setlocale(LC_ALL, "RU");
+	struct pole all[4]{
+		{ "mon1", 10, 10000 },
+		{ "mon2", 15, 15000 },
+		{ "mon3", 20, 20000 },
+		{ "mon4", 30, 30000 }
+	};
+	for (int i = 0; i < 4; ++i) {
+		stak.push(all[i]);
+	}
+	cout << "Введите новый элемент: ";
+	struct pole mon;
+	cin >> mon.monitor >> mon.diag >> mon.price;
+	stak.push(mon);
+	int cnt = 0;
+	while (!stak.empty()) {
+		if (stak.top().diag > 20) {
+			cnt += 1;
+		}
+		stakrev.push(stak.top());
+		stak.pop();
+	}
+	cout << "Мониторов больше 20 дюймов: " << cnt << endl;
+	while (!stakrev.empty()) {
+		cout << stakrev.top().monitor << "\t" << stakrev.top().diag << "\t" << stakrev.top().price << endl;
+		stakrev.pop();
+	}
+	return 0;
+}
