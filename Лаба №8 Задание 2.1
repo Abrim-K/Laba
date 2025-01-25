@@ -1,0 +1,52 @@
+#include <iostream>
+#include <forward_list>
+using namespace std;
+
+forward_list <int> min_spy{};
+
+forward_list <int> spy{};
+
+
+void push(int x) {
+	spy.push_front(x);
+	if (min_spy.empty()) {
+		min_spy.push_front(x);
+	}
+	else {
+		if (x < min_spy.front()) {
+			min_spy.push_front(x);
+		}
+		else {
+			min_spy.push_front(min_spy.front());
+		}
+	}
+}
+
+
+void pop() {
+	if (not empty(spy)) {
+		spy.pop_front();
+		min_spy.pop_front();
+	}
+	else {
+		cout << "error" << endl;
+	}
+}
+
+
+int main() {
+	int num[5] = { 4, 3, 1, 2, 4 };
+	for (int i = 0; i < 5; ++i) {
+		push(num[i]);
+	}
+	for (int n : spy) {
+		cout << n << "\t";
+	}
+	cout << endl;
+	pop();
+	for (int n : spy) {
+		cout << n << "\t";
+	}
+	cout << endl;
+	cout << "min = " << min_spy.front() << endl;
+}
