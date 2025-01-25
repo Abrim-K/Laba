@@ -7,28 +7,22 @@ stack<int> stakrev;
 
 int main() {
 	setlocale(LC_ALL, "RU");
-	int s = 1;
-	cout << "введите целые значения стека (для окончания ввода введите 0)" << endl;
-	while (s != 0) {
-		cin >> s;
-		if (s == 0) {
-			break;
-		}
-		else {
-			stak.push(s);
-		}
-	}
+	int s;
 	int proiz = 1;
-	while (!stak.empty()) {
-		proiz *= stak.top();
-		stakrev.push(stak.top());
-		stak.pop();
+	cout << "введите целые значения стека (для окончания ввода введите 0)" << endl;
+	cin >> s;
+	while (s != 0) {
+		stak.push(s);
+		if (abs(s % 2) == 1) {
+			proiz *= s;
+		}
+		cin >> s;
 	}
 	cout << "произведение: " << proiz << endl;
 	cout << "Данные стека: ";
-	while (!stakrev.empty()) {
-		cout << "\t" << stakrev.top();
-		stakrev.pop();
+	while (!stak.empty()) {
+		cout << stak.top() << "\t";
+		stak.pop();
 	}
 	return 0;
 }
