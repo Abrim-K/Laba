@@ -1,0 +1,25 @@
+#include <iostream>
+#include <forward_list>
+using namespace std;
+
+int main() {
+	forward_list <string> stroki;
+	string n;
+	int minlen = 3737838;
+	auto iter = stroki.before_begin();
+	do {
+		cin >> n;
+		stroki.push_front(n);
+		if (n.length() < minlen) {
+			minlen = n.length();
+		}
+	} while (n != "0");
+	while (!empty(stroki)) {
+		if (stroki.front().length() == minlen) {
+			stroki.erase_after(iter);
+		}
+		cout << stroki.front() << endl;
+		stroki.pop_front();
+	}
+	return 0;
+}
