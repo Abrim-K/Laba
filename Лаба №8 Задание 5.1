@@ -1,0 +1,28 @@
+#include <iostream>
+#include <forward_list>
+using namespace std;
+
+int main() {
+	forward_list <double> numbers;
+	double n;
+	do {
+		cin >> n;
+		numbers.push_front(n);
+	} while (n != 0);
+	auto iter = numbers.begin();
+	auto iterbef = numbers.before_begin();
+	while (iter != numbers.end()) {
+		if (next(iter) != numbers.end() && *next(iter) == 55) {
+			iterbef = numbers.erase_after(iterbef);
+			iter = iterbef;
+		}
+		else {
+			iterbef = iter;
+		}
+		++iter;
+	}
+	while (!empty(numbers)) {
+		cout << numbers.front() << "\t";
+		numbers.pop_front();
+	}
+}
