@@ -1,0 +1,35 @@
+#include <iostream>
+#include <queue>
+using namespace std;
+
+int main() {
+	queue <int> first_queue;
+	queue <int> second_queue;
+	queue <int> all_queue;
+	int first_num[5] = { 7, 2, 9, -1, 5 };
+	int second_num[5] = { 12, 4, 3, 8, -6 };
+	for (int i = 0; i < 5; ++i) {
+		first_queue.push(first_num[i]);
+		second_queue.push(second_num[i]);
+	}
+	int* p1 = &first_queue.front();
+	int* p2 = &first_queue.back();
+	int* p3 = &second_queue.front();
+	int* p4 = &second_queue.back();
+	while (!empty(second_queue)) {
+		all_queue.push(first_queue.front());
+		all_queue.push(second_queue.front());
+		first_queue.pop();
+		second_queue.pop();
+	}
+	int* begin = &all_queue.front();
+	int* end = &all_queue.back();
+	cout << "p1 = " << p1 << "\t" << "p2 = " << p2 << endl;
+	cout << "p3 = " << p3 << "\t" << "p4 = " << p4 << endl;
+	cout << "begin = " << begin << "\t" << "end = " << end << endl;
+	while (!empty(all_queue)) {
+		cout << all_queue.front() << "\t";
+		all_queue.pop();
+	}
+	return 0;
+}
