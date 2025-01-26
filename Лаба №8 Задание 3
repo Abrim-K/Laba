@@ -1,0 +1,87 @@
+#include <iostream>
+#include <queue>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "ru");
+	queue <int> first;
+	queue <int> second;
+	queue <int> all;
+	first.push(3);
+	first.push(7);
+	first.push(8);
+	second.push(2);
+	second.push(4);
+	second.push(9);
+	second.push(11);
+	int* p1 = &first.front();
+	int* p2 = &first.back();
+	int* p3 = &second.front();
+	int* p4 = &second.back();
+	int* iter1 = p1;
+	int* iter2 = p3;
+	int ender = 0;
+	while (ender < 1) {
+		if ((iter1 != p2) and (iter2 != p4)) {
+			if (*iter1 < *iter2) {
+				all.push(*iter1);
+				iter1++;
+			}
+			else {
+				all.push(*iter2);
+				iter2++;
+			}
+		}
+		else if ((iter1 != p2) and (iter2 == p4)) {
+			if (*iter1 < *iter2) {
+				all.push(*iter1);
+				iter1++;
+			}
+			else {
+				all.push(*iter2);
+				while (iter1 != p2) {
+					all.push(*iter1);
+					iter1++;
+				}
+				all.push(*iter1);
+				break;
+			}
+		}
+		else if ((iter1 == p2) and (iter2 != p4)) {
+			if (*iter2 < *iter1) {
+				all.push(*iter2);
+				iter2++;
+			}
+			else {
+				all.push(*iter1);
+				while (iter2 != p4) {
+					all.push(*iter2);
+					iter2++;
+				}
+				all.push(*iter2);
+				break;
+			}
+		}
+		else {
+			if (*iter1 < *iter2) {
+				all.push(*iter1);
+				all.push(*iter2);
+			}
+			else {
+				all.push(*iter2);
+				all.push(*iter1);
+			}
+			ender++;
+		}
+	}
+	int s = all.size();
+	int* begin = &all.front();
+	int* end = &all.back();
+	cout << "begin = " << begin << endl;
+	cout << "end = " << end << endl;
+	while (s > 0) {
+		cout << all.front() << "\t";
+		all.pop();
+		s = all.size();
+	}
+}
