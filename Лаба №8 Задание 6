@@ -1,0 +1,86 @@
+#include <iostream>
+using namespace std;
+
+typedef struct elem
+{
+	double number; // поле данных
+	struct elem* next; // указатель на следующий элемент
+	struct elem* prev; // указатель на предыдущий элемент
+} list;
+
+list* init(double a)  // а- значение первого узла
+{
+	list* lst;
+	// выделение памяти под корень списка
+	lst = (list*)malloc(sizeof(list));
+	(*lst).number = a;
+	(*lst).next = lst; // указатель на следующий узел
+	(*lst).prev = lst; // указатель на предыдущий узел
+	return(lst);
+}
+
+list* push(list* lst, double num)
+{
+	list* temp, * p;
+	temp = (list*)malloc(sizeof(list));
+	p = (*lst).next; // сохранение указателя на следующий узел
+	(*lst).next = temp; // предыдущий узел указывает на создаваемый
+	(*temp).number = num; // сохранение поля данных добавляемого узла
+	(*temp).next = p; // созданный узел указывает на следующий узел
+	(*temp).prev = lst; // созданный узел указывает на предыдущий узел
+	(*p).prev = temp;
+	return(temp);
+}
+
+list* pop(list *lst)
+{
+	list* prev, * next;
+	prev = (*lst).prev; // узел, предшествующий lst
+	next = (*lst).next; // узел, следующий за lst
+	(*prev).next = (*lst).next; // переставляем указатель
+	(*next).prev = (*lst).prev; // переставляем указатель
+	free(lst); // освобождаем память удаляемого элемента
+	return(next);
+}
+
+void coutlist(list* lst)
+{
+	list* p = lst;
+	do {
+		cout << (*p).number << "\t"; // вывод значения элемента p
+		p = (*p).next; // переход к следующему узлу
+	} while (p != lst); // условие окончания обхода
+	cout << endl;
+}
+
+void delete3(elem* lst) {
+	list* current = lst;
+	do {
+		if ((*(*current).next).number == 3) { // если следующий элемент равен 3
+			if (current != lst) { // если текущий элемент не начальный
+				list* toDelete = current; // элемент для удаления
+				current = pop(toDelete); // удаляем элемент
+			}
+			else {
+				current = (*current).next; // переходим к следующему элементу
+			}
+		}
+		else {
+			current = current->next; // переходим к следующему элементу
+		}
+	} while (current != lst); // продолжаем, пока не вернемся к началу
+}
+
+int main() {
+	list* spy = init(1.0);
+	push(spy, 2.0);
+	push(spy, 3.0);
+	push(spy, 4.0);
+	push(spy, 5.0);
+	push(spy, 3.0);
+	push(spy, 6.0);
+	coutlist(spy);
+	delete3(spy);
+	coutlist(spy);
+	return 0;
+}
