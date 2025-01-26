@@ -1,0 +1,24 @@
+#include <iostream>
+#include <list>
+using namespace std;
+
+
+int main() {
+	list <int> numbers;
+	int n;
+	do {
+		cin >> n;
+		if (n != 0) {
+			numbers.push_front(n);
+		}
+		auto iter = ++numbers.begin();
+		if (n == 9) {
+			numbers.emplace(iter, 11);
+		}
+	} while (n != 0);
+	while (!empty(numbers)) {
+		cout << numbers.front() << "\t";
+		numbers.pop_front();
+	}
+	return 0;
+}
